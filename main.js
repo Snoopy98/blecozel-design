@@ -18,16 +18,20 @@ revealTargets.forEach((target, index) => {
 
 const form = document.querySelector('.estimate-form');
 if (form) {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    form.reset();
-    showToast('요청이 접수되었습니다. 48시간 내 연락드릴게요.');
+  form.addEventListener('submit', () => {
+    if (!toast) return;
+    toast.innerHTML = `
+      <span>요청이 접수되었습니다. 48시간 내 연락드릴게요 감사합니다!</span>
+      <button type="button" class="toast-close">확인</button>
+    `;
+    toast.classList.add('show');
   });
 }
 
-function showToast(message) {
-  if (!toast) return;
-  toast.textContent = message;
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3200);
+if (toast) {
+  toast.addEventListener('click', (event) => {
+    if (event.target && event.target.classList.contains('toast-close')) {
+      toast.classList.remove('show');
+    }
+  });
 }
