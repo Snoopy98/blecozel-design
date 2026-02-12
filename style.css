@@ -428,6 +428,10 @@ textarea {
   color: var(--ink);
 }
 
+select[multiple] {
+  min-height: 160px;
+}
+
 
 textarea {
   resize: vertical;
