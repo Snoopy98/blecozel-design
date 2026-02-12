@@ -177,7 +177,7 @@ section {
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(20, 26, 33, 0.75);
+  background: #ffffff;
 }
 
 .primary {
