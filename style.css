@@ -473,9 +473,6 @@ input[type="file"]::file-selector-button:hover {
   background: #efe7d9;
 }
 
-select[multiple] {
-  min-height: 160px;
-}
 
 .choice-box {
   border: 1px solid var(--border);
