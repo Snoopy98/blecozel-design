@@ -252,8 +252,10 @@
             <label for="space">공간 유형</label>
             <select id="space" name="space" required>
               <option value="">선택</option>
-              <option>주거</option>
-              <option>카페/식음</option>
+              <option>아파트</option>
+              <option>단독주택</option>
+              <option>빌라</option>
+              <option>카페/음식점</option>
               <option>오피스/상업</option>
               <option>숙박/스테이</option>
               <option>기타</option>
@@ -263,6 +265,24 @@
             <label for="size">평수/면적</label>
             <input id="size" name="size" type="text" placeholder="예: 32평" required />
           </div>
+          <div class="field full">
+            <label for="desired_space">인테리어 희망공간</label>
+            <select id="desired_space" name="desired_space" multiple>
+              <option>키친</option>
+              <option>바스</option>
+              <option>수납</option>
+              <option>마루</option>
+              <option>중문</option>
+              <option>도어</option>
+              <option>창호</option>
+              <option>필름</option>
+              <option>벽지</option>
+              <option>조명</option>
+              <option>타일</option>
+              <option>조적</option>
+              <option>기타</option>
+            </select>
+          </div>
           <div class="field">
             <label for="budget">예산 범위</label>
             <select id="budget" name="budget" required>
@@ -271,6 +291,7 @@
               <option>3,000만 ~ 6,000만</option>
               <option>6,000만 ~ 1억</option>
               <option>1억 이상</option>
+              <option>미정</option>
             </select>
           </div>
           <div class="field">
@@ -321,12 +342,20 @@
       </div>
       <div class="faq">
         <details>
-          <summary>견적서는 정말 무료인가요?</summary>
-          <p>네. Blecozel은 공간별 맞춤 견적서를 무료로 제공합니다. 계약 여부와 무관하게 발송됩니다.</p>
+          <summary>3D 공간 사전설계와 견적서 는 정말 무료인가요?</summary>
+          <p>네. Blecozel은 공간별 맞춤 견적서와 3D 공간 사전설계를 무료로 제공합니다. 계약 여부와 무관하게 발송됩니다.</p>
+        </details>
+        <details>
+          <summary>도면은 보통 어떻게 보내드리나요?</summary>
+          <p>간단한 인터넷으로 주거중인 타입 확인후 보내주시면 됩니다.</p>
         </details>
         <details>
           <summary>도면이 없으면 어떻게 하나요?</summary>
-          <p>사진과 간단한 치수만 있어도 가능합니다. 필요 시 현장 방문 실측을 진행합니다.</p>
+          <p>도면사진과 간단한 치수만 있어도 가능합니다. 필요 시 현장 방문 실측을 진행합니다.</p>
+        </details>
+        <details>
+          <summary>제품은 어디 제품을 사용하나요?</summary>
+          <p>저희 Blecozel은 현대 LIVART 제품을 사용하여 믿고 맡기셔도 됩니다.</p>
         </details>
         <details>
           <summary>견적서 발송까지 얼마나 걸리나요?</summary>
