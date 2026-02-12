@@ -265,9 +265,10 @@
             <label for="size">평수/면적</label>
             <input id="size" name="size" type="text" placeholder="예: 32평" required />
           </div>
-          <div class="field full">
-            <label for="desired_space">인테리어 희망공간</label>
-            <select id="desired_space" name="desired_space" multiple>
+          <div class="field">
+            <label for="desired_space">희망 공간</label>
+            <select id="desired_space" name="desired_space" required>
+              <option value="">선택</option>
               <option>키친</option>
               <option>바스</option>
               <option>수납</option>
