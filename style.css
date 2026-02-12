@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #fefefe;
+  --bg: #f6f0f0;
   --bg-soft: #f7f7f8;
   --surface: #ffffff;
   --surface-2: #ffffff;
@@ -144,7 +144,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/image/blecozelwebimage/backgroundimage1.png") center/cover no-repeat;
+  background: url("/image/background/backgroundimage1.png") center/cover no-repeat;
   opacity: 0.3;
   filter: contrast(1.06) saturate(1.05);
   z-index: 0;
