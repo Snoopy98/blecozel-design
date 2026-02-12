@@ -133,7 +133,9 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 48px;
   align-items: center;
-  padding-top: 120px;
+  padding-top: 140px;
+  padding-bottom: 80px;
+  min-height: 80vh;
 }
 
 .hero h1 {
