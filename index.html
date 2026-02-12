@@ -267,25 +267,6 @@
             <input id="size" name="size" type="text" placeholder="예: 32평" required />
           </div>
           <div class="field">
-            <label for="desired_space">희망 공간</label>
-            <select id="desired_space" name="desired_space" multiple required>
-              <option value="">선택</option>
-              <option>키친</option>
-              <option>바스</option>
-              <option>수납</option>
-              <option>마루</option>
-              <option>중문</option>
-              <option>도어</option>
-              <option>창호</option>
-              <option>필름</option>
-              <option>벽지</option>
-              <option>조명</option>
-              <option>타일</option>
-              <option>조적</option>
-              <option>기타</option>
-            </select>
-          </div>
-          <div class="field">
             <label for="budget">예산 범위</label>
             <select id="budget" name="budget" required>
               <option value="">선택</option>
@@ -301,11 +282,31 @@
             <input id="schedule" name="schedule" type="text" placeholder="예: 4월 착공" required />
           </div>
           <div class="field full">
+            <label>희망 공간</label>
+            <div class="choice-box">
+              <div class="choice-grid">
+                <label><input type="checkbox" name="desired_space" value="키친" />키친</label>
+                <label><input type="checkbox" name="desired_space" value="바스" />바스</label>
+                <label><input type="checkbox" name="desired_space" value="수납" />수납</label>
+                <label><input type="checkbox" name="desired_space" value="마루" />마루</label>
+                <label><input type="checkbox" name="desired_space" value="중문" />중문</label>
+                <label><input type="checkbox" name="desired_space" value="도어" />도어</label>
+                <label><input type="checkbox" name="desired_space" value="창호" />창호</label>
+                <label><input type="checkbox" name="desired_space" value="필름" />필름</label>
+                <label><input type="checkbox" name="desired_space" value="벽지" />벽지</label>
+                <label><input type="checkbox" name="desired_space" value="조명" />조명</label>
+                <label><input type="checkbox" name="desired_space" value="타일" />타일</label>
+                <label><input type="checkbox" name="desired_space" value="조적/가벽" />조적/가벽</label>
+                <label><input type="checkbox" name="desired_space" value="기타" />기타</label>
+              </div>
+            </div>
+          </div>
+          <div class="field full">
             <label for="message">요청 사항</label>
             <textarea id="message" name="message" rows="4" placeholder="원하는 분위기, 꼭 필요한 공정 등을 남겨주세요."></textarea>
           </div>
           <button class="primary" type="submit">무료 견적서 요청하기</button>
-          <p class="form-note">제출 시 Blecozel의 개인정보 처리방침에 동의한 것으로 간주됩니다.</p>
+          <p class="form-note">제출 시 고객님의 개인정보는 Blecozel의 개인정보 처리방침에 동의한 것으로 확인되며 개인정보는 견적서 발신에 사용됩니다.</p>
         </form>
         <div class="estimate-side">
           <div class="side-card">
@@ -357,7 +358,7 @@
         </details>
         <details>
           <summary>제품은 어디 제품을 사용하나요?</summary>
-          <p>저희 Blecozel은 현대 LIVART 제품을 사용하여 믿고 맡기셔도 됩니다.</p>
+          <p>저희 Blecozel은 현대 LIVART 제품을 사용하여 안심하고 믿고 맡기셔도 됩니다.</p>
         </details>
         <details>
           <summary>견적서 발송까지 얼마나 걸리나요?</summary>

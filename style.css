@@ -432,6 +432,30 @@ select[multiple] {
   min-height: 160px;
 }
 
+.choice-box {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  background: #ffffff;
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.choice-grid label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.choice-grid input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
 
 textarea {
   resize: vertical;
