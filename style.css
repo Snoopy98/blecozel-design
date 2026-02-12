@@ -240,7 +240,7 @@ section {
 }
 
 .hero-card {
-  background: var(--surface);
+  background: #f6f0f0;
   color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 32px;
