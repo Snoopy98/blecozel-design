@@ -145,7 +145,7 @@ section {
   position: absolute;
   inset: 0;
   background: url("/image/background/backgroundimage1.png") center/cover no-repeat;
-  opacity: 0.22;
+  opacity: 0.3;
   filter: contrast(1.06) saturate(1.05);
   z-index: 0;
 }
