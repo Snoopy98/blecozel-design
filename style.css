@@ -144,7 +144,7 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("image/background/backgroundimage1.png") center/cover no-repeat;
+  background: url("/image/background/backgroundimage1.png") center/cover no-repeat;
   opacity: 0.3;
   filter: contrast(1.06) saturate(1.05);
   z-index: 0;
@@ -195,7 +195,7 @@ section {
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: #ffffff;
+  background: #ffffff2d;
 }
 
 .primary {
