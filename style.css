@@ -252,6 +252,7 @@ section {
 .hero-card-inner {
   display: grid;
   gap: 16px;
+  background: var(--bg);
 }
 
 .hero-card ul {
