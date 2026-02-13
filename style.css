@@ -356,7 +356,7 @@ section {
 
 .category-card img {
   width: 100%;
-  height: 230px;
+  height: 260px;
   object-fit: cover;
   border-radius: 0;
   display: block;
@@ -365,10 +365,9 @@ section {
 .category-card-body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
   flex: 1;
-  margin-top: auto;
-  padding: 24px;
+  padding: 16px 24px 22px;
 }
 
 .category-card h3 {
