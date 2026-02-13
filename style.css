@@ -347,6 +347,7 @@ section {
   box-shadow: 0 16px 28px var(--shadow);
   min-height: 200px;
   color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .category-card.has-image {
@@ -360,6 +361,11 @@ section {
   object-fit: cover;
   border-radius: 0;
   display: block;
+}
+
+.category-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 22px 40px rgba(17, 24, 39, 0.14);
 }
 
 .category-card-body {
