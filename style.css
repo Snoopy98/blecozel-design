@@ -294,10 +294,14 @@ section {
   color: #2f353b;
 }
 
+#process .section-head p {
+  color: #7b8188;
+}
+
 .steps {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 32px;
 }
 
 .steps article {
