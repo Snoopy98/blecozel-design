@@ -344,7 +344,7 @@ section {
   display: grid;
   gap: 10px;
   box-shadow: 0 16px 28px var(--shadow);
-  min-height: 170px;
+  min-height: 210px;
 }
 
 .category-card h3 {
