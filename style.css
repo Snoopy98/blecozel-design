@@ -195,7 +195,7 @@ section {
   padding: 8px 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: #ffffff2d;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 .primary {
