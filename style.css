@@ -240,7 +240,9 @@ section {
 }
 
 .hero-card {
-  background: rgba(245, 242, 242, 0.12);
+  background: rgba(245, 242, 242, 0.48);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 32px;
