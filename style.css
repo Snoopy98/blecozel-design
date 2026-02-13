@@ -289,6 +289,11 @@ section {
   color: var(--muted);
 }
 
+#process .section-head p,
+#portfolio .section-head p {
+  color: #2f353b;
+}
+
 .steps {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
