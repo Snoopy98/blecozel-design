@@ -166,13 +166,13 @@ section {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   font-weight: 600;
-  color: var(--accent-dark);
+  color: #2f353b;
   margin-bottom: 12px;
 }
 
 .lead {
   font-size: 1.05rem;
-  color: #3f454c;
+  color: #2f353b;
   max-width: 560px;
 }
 
@@ -187,7 +187,7 @@ section {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 28px;
-  color: #3f454c;
+  color: #2f353b;
   font-size: 0.85rem;
 }
 
@@ -236,7 +236,7 @@ section {
 
 .hero-metrics p {
   font-size: 0.85rem;
-  color: var(--muted);
+  color: #2f353b;
 }
 
 .hero-card {
@@ -262,7 +262,7 @@ section {
 }
 
 .hero-chip {
-  background: #ffffff;
+  background: var(--bg);
   color: var(--ink);
   padding: 8px 14px;
   border-radius: 999px;
