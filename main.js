@@ -16,6 +16,41 @@ revealTargets.forEach((target, index) => {
   target.dataset.delay = String(index % 4);
 });
 
+const carouselTrack = document.querySelector('.carousel-track');
+if (carouselTrack) {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  const startDrag = (event) => {
+    isDown = true;
+    carouselTrack.classList.add('dragging');
+    startX = event.pageX ?? event.touches?.[0]?.pageX ?? 0;
+    scrollLeft = carouselTrack.scrollLeft;
+  };
+
+  const stopDrag = () => {
+    isDown = false;
+    carouselTrack.classList.remove('dragging');
+  };
+
+  const onDrag = (event) => {
+    if (!isDown) return;
+    const x = event.pageX ?? event.touches?.[0]?.pageX ?? 0;
+    const walk = (x - startX) * 1.2;
+    carouselTrack.scrollLeft = scrollLeft - walk;
+  };
+
+  carouselTrack.addEventListener('mousedown', startDrag);
+  carouselTrack.addEventListener('mouseleave', stopDrag);
+  carouselTrack.addEventListener('mouseup', stopDrag);
+  carouselTrack.addEventListener('mousemove', onDrag);
+
+  carouselTrack.addEventListener('touchstart', startDrag, { passive: true });
+  carouselTrack.addEventListener('touchend', stopDrag);
+  carouselTrack.addEventListener('touchmove', onDrag, { passive: true });
+}
+
 const form = document.querySelector('.estimate-form');
 if (form) {
   form.addEventListener('submit', async (event) => {
