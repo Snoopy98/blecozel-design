@@ -211,7 +211,7 @@ section {
   overflow: hidden;
   background: linear-gradient(135deg, #e6e7e9, #f5f2ee);
   box-shadow: 0 20px 40px rgba(17, 24, 39, 0.14);
-  aspect-ratio: 3 / 4.6;
+  aspect-ratio: 3 / 4.3;
   scroll-snap-align: start;
   flex-shrink: 0;
   user-select: none;
@@ -252,7 +252,13 @@ section {
   inset: 0;
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   filter: saturate(1.05);
+}
+
+.carousel-card:nth-child(-n + 3) .carousel-media {
+  background-size: contain;
+  background-color: #dfe3e7;
 }
 
 .carousel-overlay {
