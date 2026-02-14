@@ -139,7 +139,7 @@ section {
 .carousel-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(360px, 600px);
+  grid-auto-columns: minmax(400px, 680px);
   gap: 24px;
   overflow-x: auto;
   padding: 10px 4px 18px;
