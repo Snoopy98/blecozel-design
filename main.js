@@ -21,6 +21,52 @@ if (carouselTrack) {
   let isDown = false;
   let startX = 0;
   let scrollLeft = 0;
+  let cards = Array.from(carouselTrack.querySelectorAll('.carousel-card'));
+  const indicatorCurrent = document.querySelector('.indicator-current');
+  const indicatorTotal = document.querySelector('.indicator-total');
+  const indicatorProgress = document.querySelector('.indicator-progress');
+  let rafId = null;
+
+  const formatIndex = (value) => String(value).padStart(2, '0');
+
+  const syncIndicatorTotal = () => {
+    cards = Array.from(carouselTrack.querySelectorAll('.carousel-card'));
+    if (indicatorTotal) {
+      indicatorTotal.textContent = formatIndex(cards.length || 1);
+    }
+  };
+
+  const getActiveIndex = () => {
+    if (!cards.length) return 0;
+    const currentScroll = carouselTrack.scrollLeft;
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+    cards.forEach((card, index) => {
+      const distance = Math.abs(card.offsetLeft - currentScroll);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = index;
+      }
+    });
+    return closestIndex;
+  };
+
+  const updateIndicator = () => {
+    if (!indicatorCurrent || !indicatorProgress) return;
+    const activeIndex = getActiveIndex();
+    indicatorCurrent.textContent = formatIndex(activeIndex + 1);
+    const total = Math.max(cards.length, 1);
+    const progress = total > 1 ? activeIndex / (total - 1) : 1;
+    indicatorProgress.style.width = `${Math.min(Math.max(progress, 0), 1) * 100}%`;
+  };
+
+  const scheduleUpdate = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(() => {
+      rafId = null;
+      updateIndicator();
+    });
+  };
 
   const startDrag = (event) => {
     isDown = true;
@@ -49,6 +95,18 @@ if (carouselTrack) {
   carouselTrack.addEventListener('touchstart', startDrag, { passive: true });
   carouselTrack.addEventListener('touchend', stopDrag);
   carouselTrack.addEventListener('touchmove', onDrag, { passive: true });
+
+  carouselTrack.addEventListener('scroll', scheduleUpdate, { passive: true });
+  window.addEventListener('resize', scheduleUpdate);
+
+  const observer = new MutationObserver(() => {
+    syncIndicatorTotal();
+    scheduleUpdate();
+  });
+  observer.observe(carouselTrack, { childList: true });
+
+  syncIndicatorTotal();
+  updateIndicator();
 }
 
 const form = document.querySelector('.estimate-form');
