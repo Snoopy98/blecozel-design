@@ -3,14 +3,345 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>로그인 | Blecozel</title>
-  <link rel="stylesheet" href="/style.css" />
+  <title>Blecozel Design - 로그인</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #333;
+      --muted: #777;
+      --line: #ccc;
+      --line-soft: #eee;
+      --soft: #f9f9f9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: var(--muted);
+      font-family: Roboto, "Noto Sans KR", "Noto Sans", "Malgun Gothic", arial, sans-serif;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .login-header {
+      border-bottom: 1px solid var(--line-soft);
+    }
+
+    .header-inner {
+      max-width: 1366px;
+      height: 110px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand {
+      display: inline-block;
+      color: var(--ink);
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .login-main {
+      padding: 58px 20px 100px;
+    }
+
+    .login-shell {
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      margin: 0 0 30px;
+      text-align: center;
+      color: var(--ink);
+      font-size: 36px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+    }
+
+    .field + .field {
+      margin-top: 10px;
+    }
+
+    .input {
+      width: 100%;
+      height: 50px;
+      border: 1px solid var(--line);
+      padding: 0 14px;
+      font-size: 16px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .input::placeholder {
+      color: #999;
+    }
+
+    .input:hover {
+      border-color: var(--ink);
+    }
+
+    .input:focus {
+      outline: none;
+      border-color: var(--ink);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .login-options {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .check-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .check-wrap input {
+      width: 16px;
+      height: 16px;
+      margin: 0;
+      accent-color: #333;
+    }
+
+    .button-login {
+      margin-top: 16px;
+      width: 100%;
+      height: 54px;
+      border: 1px solid transparent;
+      background: #333;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .button-login:hover {
+      background: #2d2d2d;
+    }
+
+    .member-links {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .member-links a + a {
+      position: relative;
+    }
+
+    .member-links a + a::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 50%;
+      width: 1px;
+      height: 12px;
+      background: #d8d8d8;
+      transform: translateY(-50%);
+    }
+
+    .divider {
+      margin: 34px 0 18px;
+      text-align: center;
+      font-size: 13px;
+      color: #999;
+      position: relative;
+    }
+
+    .divider::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: var(--line-soft);
+      transform: translateY(-50%);
+    }
+
+    .divider span {
+      position: relative;
+      display: inline-block;
+      padding: 0 12px;
+      background: #fff;
+    }
+
+    .sns-login-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .sns-button {
+      width: 100%;
+      height: 52px;
+      border: 1px solid #ddd;
+      background: #fff;
+      color: var(--ink);
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .sns-button:hover {
+      background: var(--soft);
+      border-color: #777;
+    }
+
+    .sns-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex: 0 0 24px;
+    }
+
+    .sns-button.naver .sns-icon {
+      background: #1ec800;
+      color: #fff;
+    }
+
+    .sns-button.kakao .sns-icon {
+      background: #f6c644;
+      color: #333;
+    }
+
+    .sns-button.facebook .sns-icon {
+      background: #3a5ca9;
+      color: #fff;
+    }
+
+    .sns-button.payco .sns-icon {
+      background: #e72a2d;
+      color: #fff;
+    }
+
+    .sns-button.apple .sns-icon {
+      background: #101010;
+      color: #fff;
+    }
+
+    .back-link {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .back-link a:hover {
+      color: var(--ink);
+    }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        height: 86px;
+      }
+
+      .brand {
+        font-size: 26px;
+      }
+
+      .login-main {
+        padding: 42px 16px 72px;
+      }
+
+      .page-title {
+        font-size: 30px;
+        margin-bottom: 24px;
+      }
+
+      .member-links {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .member-links a + a::before {
+        left: -7px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main style="padding: 80px 7vw;">
-    <h1 style="margin-bottom: 16px;">로그인</h1>
-    <p style="margin-bottom: 20px; color: #5b6168;">로그인 페이지입니다.</p>
-    <a href="index.html">메인으로 돌아가기</a>
+  <header class="login-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="메인으로 이동">Blecozel Design</a>
+    </div>
+  </header>
+
+  <main class="login-main">
+    <section class="login-shell">
+      <h1 class="page-title">로그인</h1>
+
+      <form action="#" method="post">
+        <div class="field">
+          <input class="input" id="login-id" name="login-id" type="text" placeholder="아이디" autocomplete="username" aria-label="아이디" />
+        </div>
+        <div class="field">
+          <input class="input" id="login-password" name="login-password" type="password" placeholder="비밀번호" autocomplete="current-password" aria-label="비밀번호" />
+        </div>
+
+        <div class="login-options">
+          <label class="check-wrap" for="save-id">
+            <input id="save-id" type="checkbox" />
+            <span>아이디 저장</span>
+          </label>
+        </div>
+
+        <button class="button-login" type="submit">로그인</button>
+      </form>
+
+      <div class="member-links">
+        <a href="#">아이디 찾기</a>
+        <a href="#">비밀번호 찾기</a>
+        <a href="#">회원가입</a>
+      </div>
+
+      <p class="divider"><span>간편 로그인</span></p>
+      <div class="sns-login-list">
+        <button class="sns-button naver" type="button"><span class="sns-icon">N</span>네이버 아이디로 로그인</button>
+        <button class="sns-button kakao" type="button"><span class="sns-icon">K</span>카카오 계정으로 로그인</button>
+        <button class="sns-button facebook" type="button"><span class="sns-icon">f</span>Facebook 계정으로 로그인</button>
+        <button class="sns-button payco" type="button"><span class="sns-icon">P</span>PAYCO 계정으로 로그인</button>
+        <button class="sns-button apple" type="button"><span class="sns-icon">A</span>Apple 계정으로 로그인</button>
+      </div>
+
+      <p class="back-link"><a href="index.html">메인으로 돌아가기</a></p>
+    </section>
   </main>
 </body>
 </html>
