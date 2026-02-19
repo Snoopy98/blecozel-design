@@ -88,6 +88,12 @@ img {
   font-weight: 500;
 }
 
+.topbar-left {
+  display: flex;
+  gap: 18px;
+  font-weight: 500;
+}
+
 .logo {
   font-size: 1.6rem;
   font-weight: 600;
