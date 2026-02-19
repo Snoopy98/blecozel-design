@@ -5,12 +5,350 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>마이페이지 | Blecozel</title>
   <link rel="stylesheet" href="/style.css" />
+  <style>
+    .topbar-right a.current {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .mypage-main {
+      padding: 56px 7vw 96px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .profile-panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: 0 14px 30px rgba(17, 24, 39, 0.08);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #111315, #45484d);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+
+    .profile-meta h1 {
+      font-size: clamp(1.5rem, 2.4vw, 2rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .profile-meta p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .button-outline,
+    .button-solid {
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+    }
+
+    .button-outline {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+    }
+
+    .button-solid {
+      border: 1px solid #111315;
+      background: #111315;
+      color: #fff;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 20px rgba(17, 24, 39, 0.06);
+    }
+
+    .stat-card .label {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .stat-card strong {
+      font-size: 1.32rem;
+      letter-spacing: -0.01em;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 12px 24px rgba(17, 24, 39, 0.06);
+    }
+
+    .panel h2 {
+      font-size: 1.03rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .activity-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .activity-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      gap: 4px;
+      background: #fcfcfd;
+    }
+
+    .activity-item .date {
+      color: #8b9198;
+      font-size: 0.8rem;
+    }
+
+    .activity-item .title {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .activity-item p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-link {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      background: #fff;
+    }
+
+    .quick-link small {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .consult-table {
+      display: grid;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .consult-row {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      background: #fff;
+    }
+
+    .consult-meta {
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 2px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge.waiting {
+      color: #7b4f00;
+      background: #fff5db;
+    }
+
+    .badge.done {
+      color: #235a30;
+      background: #e7f5e9;
+    }
+
+    @media (max-width: 1080px) {
+      .profile-panel {
+        grid-template-columns: auto 1fr;
+      }
+
+      .profile-actions {
+        grid-column: 1 / -1;
+      }
+
+      .stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .mypage-main {
+        padding-top: 36px;
+      }
+
+      .profile-panel {
+        padding: 18px;
+      }
+
+      .avatar {
+        width: 62px;
+        height: 62px;
+        font-size: 1.25rem;
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .consult-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main style="padding: 80px 7vw;">
-    <h1 style="margin-bottom: 16px;">마이페이지</h1>
-    <p style="margin-bottom: 20px; color: #5b6168;">마이페이지 화면입니다.</p>
-    <a href="index.html">메인으로 돌아가기</a>
+  <div class="grain"></div>
+
+  <div class="topbar">
+    <div class="topbar-left">
+      <a href="index.html#estimate">상담신청</a>
+      <a href="index.html#portfolio">시공사례</a>
+      <a href="index.html#pricing">토탈 패키지</a>
+      <a href="index.html#faq">고객지원</a>
+    </div>
+    <div class="topbar-right">
+      <a href="signup.html">회원가입</a>
+      <a href="login.html">로그인</a>
+      <a class="current" href="mypage.html">마이페이지</a>
+      <a href="wishlist.html">위시리스트</a>
+    </div>
+  </div>
+
+  <header class="nav">
+    <a class="logo" href="index.html">Blecozel</a>
+    <nav class="nav-links">
+      <a href="index.html#categories">공간 카테고리</a>
+      <a href="index.html#portfolio">시공사례</a>
+      <a href="index.html#pricing">패키지</a>
+      <a href="index.html#hero-carousel">진행 방식</a>
+      <a href="index.html#estimate">상담신청</a>
+    </nav>
+    <a class="nav-cta" href="index.html#estimate">무료 사전설계 받기</a>
+  </header>
+
+  <main class="mypage-main">
+    <section class="profile-panel" aria-label="사용자 정보">
+      <div class="avatar" id="profile-avatar" aria-hidden="true">BL</div>
+      <div class="profile-meta">
+        <h1 id="profile-greeting">안녕하세요, 블레코젤님</h1>
+        <p id="profile-summary">일반 회원 · 최근 로그인 2026.02.19 · 상담 선호 시간 오전 10:00~12:00</p>
+      </div>
+      <div class="profile-actions">
+        <a class="button-outline" href="wishlist.html">위시리스트 관리</a>
+        <a class="button-solid" href="index.html#estimate">새 상담 신청</a>
+      </div>
+    </section>
+
+    <section class="stat-grid" aria-label="요약 지표">
+      <article class="stat-card">
+        <span class="label">위시리스트</span>
+        <strong id="stat-wishlist">0개</strong>
+      </article>
+      <article class="stat-card">
+        <span class="label">진행중 상담</span>
+        <strong id="stat-active-consults">0건</strong>
+      </article>
+      <article class="stat-card">
+        <span class="label">완료 견적</span>
+        <strong id="stat-done-consults">0건</strong>
+      </article>
+      <article class="stat-card">
+        <span class="label">알림</span>
+        <strong id="stat-notifications">0개</strong>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <h2>최근 활동</h2>
+        <div class="activity-list" id="activity-list"></div>
+      </article>
+
+      <article class="panel">
+        <h2>빠른 메뉴</h2>
+        <div class="quick-links">
+          <a class="quick-link" href="wishlist.html"><span>위시리스트 보기</span><small id="quick-wishlist-count">저장 0개</small></a>
+          <a class="quick-link" href="index.html#estimate"><span>상담 신청 내역</span><small id="quick-consult-count">진행 0건</small></a>
+          <a class="quick-link" href="index.html#portfolio"><span>최근 본 시공사례</span><small id="quick-recent-count">0개</small></a>
+          <a class="quick-link" href="login.html"><span>계정 정보 수정</span><small>보안 설정</small></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>상담 진행 현황</h2>
+      <div class="consult-table" id="consult-table"></div>
+    </section>
   </main>
+  <script defer src="/main.js"></script>
 </body>
 </html>
